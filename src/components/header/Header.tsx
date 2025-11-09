@@ -2,6 +2,7 @@
 import { useState } from "react";
 import header from "./header.module.css";
 import { LoginButton } from "./LoginButton";
+import { HomeButton } from "./HomeButton";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,7 +14,7 @@ export const Header = () => {
           <div className="container-fluid">
             <span className="navbar-brand fw-bold">
               <i className="bi bi-lightbulb-fill me-2"></i>
-              ReqGenius
+              <HomeButton></HomeButton>
             </span>
             <button
               className="navbar-toggler"

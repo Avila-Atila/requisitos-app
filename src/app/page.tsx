@@ -115,7 +115,7 @@ export default function Home() {
                 <i className="bi bi-stars me-2"></i>Análise de Requisitos com IA
               </h2>
               <p className="lead">
-                Nossa plataforma utiliza algoritmos de machine learning para:
+                Nossa plataforma utiliza modelos especializados para:
               </p>
               <ul className="list-unstyled">
                 <li className="mb-2">
@@ -267,7 +267,7 @@ export default function Home() {
                     <h3 className="h5 mb-3">Contato</h3>
                     <p>Tem dúvidas sobre nossa plataforma?</p>
                     <a
-                      href="mailto:contato@reqgenius.com"
+                      href="mailto:atilagarcia12@gmail.com"
                       className="btn btn-light btn-sm mt-2"
                     >
                       <i className="bi bi-envelope-at-fill me-1"></i> Enviar

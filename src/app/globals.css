@@ -21,6 +21,8 @@ body {
   min-height: 100dvh;
   max-width: 100vw;
   background-color: #f8f9fa;
+  display: flex;
+  flex-direction: column;
 }
 
 section {
@@ -29,6 +31,10 @@ section {
   margin-bottom: 2rem;
   border-radius: 0.5rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+main {
+  flex: 1;
 }
 
 main.container {

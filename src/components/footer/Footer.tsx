@@ -1,11 +1,11 @@
 export const Footer = () => {
   return (
     <>
-      <footer className="bg-dark text-white py-5">
+      <footer className="bg-dark text-white py-3 py-md-3  ">
         <div className="container">
           <div className="row">
             <div className="col-lg-6 mb-4 mb-lg-0">
-              <h3 className="h5 mb-3">
+              <h3 className="h5 mb-2">
                 <i className="bi bi-lightbulb-fill text-warning me-2"></i>
                 ReqGenius
               </h3>
@@ -37,7 +37,7 @@ export const Footer = () => {
                 </a>
               </div>
             </div>
-            <div className="col-lg-2 col-md-4 mb-4 mb-md-0">
+            <div className="col-lg-2 col-md-4 mb-2 mb-md-0">
               <h4 className="h6 mb-3">Produto</h4>
               <ul className="list-unstyled">
                 <li className="mb-2">
@@ -50,7 +50,7 @@ export const Footer = () => {
                 </li>
               </ul>
             </div>
-            <div className="col-lg-2 col-md-4 mb-4 mb-md-0">
+            <div className="col-lg-2 col-md-4 mb-2 mb-md-0">
               <h4 className="h6 mb-3">Suporte</h4>
               <ul className="list-unstyled">
                 <li className="mb-2">
@@ -61,7 +61,7 @@ export const Footer = () => {
                 </li>
               </ul>
             </div>
-            <div className="col-lg-2 col-md-4 mb-4 mb-md-0">
+            <div className="col-lg-2 col-md-4 mb-2 mb-md-0">
               <h4 className="h6 mb-3">Navegação</h4>
               <ul className="list-unstyled">
                 <li className="mb-2">
@@ -72,15 +72,15 @@ export const Footer = () => {
               </ul>
             </div>
           </div>
-          <hr className="my-4 border-secondary" />
+          <hr className="my-2 border-secondary" />
           <div className="row">
             <div className="col-md-6 text-center text-md-start">
-              <p className="small text-muted mb-0">
+              <p className="small text-secondary mb-0">
                 &copy; 2025 ReqGenius. Desenvolvido por Átila Ávila.
               </p>
             </div>
             <div className="col-md-6 text-center text-md-end">
-              <p className="small text-muted mb-0">
+              <p className="small text-secondary mb-0">
                 Feito com <i className="bi bi-heart-fill text-danger"></i> para
                 engenheiros de software
               </p>

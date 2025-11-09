@@ -10,7 +10,7 @@ export default function AuthForm() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm<FormValues>();
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
@@ -44,34 +44,50 @@ export default function AuthForm() {
   const logInForm = () => {
     return (
       <>
+        <div className="mb-3">
+          <label htmlFor="email" className="form-label">
+            Email
+          </label>
+          <input
+            key="login-email"
+            id="email"
+            type="text"
+            placeholder="seu@email.com"
+            className="form-control"
+            {...register("email", {
+              required: "Insira um email",
+              pattern: { value: /^\S+@\S+$/i, message: "Formato inválido" },
+            })}
+          />
+          {errors.email && (
+            <p style={{ color: "red" }}>{errors.email.message}</p>
+          )}
+        </div>
+        <div className="mb-4">
+          <label htmlFor="password" className="form-label">
+            Senha
+          </label>
+          <input
+            type="password"
+            id="password"
+            className="form-control"
+            key="login-password"
+            placeholder="••••••••"
+            {...register("password", {
+              required: "Insira uma senha",
+              minLength: { value: 6, message: "Mínimo de 6 caracteres" },
+              maxLength: { value: 16, message: "Máximo de 16 caracteres" },
+            })}
+          />
+          {errors.password && (
+            <p style={{ color: "red" }}>{errors.password.message}</p>
+          )}
+        </div>
         <input
-          key="login-email"
-          type="text"
-          placeholder="Email"
-          {...register("email", {
-            required: "Insira um email",
-            pattern: { value: /^\S+@\S+$/i, message: "Formato inválido" },
-          })}
-        />
-        {errors.email && <p style={{ color: "red" }}>{errors.email.message}</p>}
-
-        <input
-          type="password"
-          key="login-password"
-          placeholder="Senha"
-          {...register("password", {
-            required: "Insira uma senha",
-            minLength: { value: 6, message: "Mínimo de 6 caracteres" },
-            maxLength: { value: 16, message: "Máximo de 16 caracteres" },
-          })}
-        />
-        {errors.password && (
-          <p style={{ color: "red" }}>{errors.password.message}</p>
-        )}
-        <input
+          className="btn btn-warning w-100 py-2 mb-3"
           type="submit"
-          value={loading ? "Aguarde" : "Login"}
-          disabled={loading}
+          value={loading ? "Aguarde" : "Entrar"}
+          disabled={loading || !isValid}
         />
       </>
     );
@@ -80,47 +96,80 @@ export default function AuthForm() {
   const signUpForm = () => {
     return (
       <>
+        <div className="mb-3">
+          <label htmlFor="first-name" className="form-label">
+            Primeiro nome
+          </label>
+          <input
+            type="text"
+            key="signup-firstname"
+            className="form-control"
+            id="first-name"
+            placeholder="João"
+            {...register("firstName", { required: true, minLength: 3 })}
+          />
+          {errors.firstName && (
+            <p style={{ color: "red" }}>{errors.firstName.message}</p>
+          )}
+        </div>
+        <div className="mb-3">
+          <label htmlFor="last-name" className="form-label">
+            Último nome
+          </label>
+          <input
+            type="text"
+            placeholder="Silva"
+            id="last-name"
+            key="signup-lastname"
+            className="form-control"
+            {...register("lastName", { required: true, minLength: 3 })}
+          />
+          {errors.lastName && (
+            <p style={{ color: "red" }}>{errors.lastName.message}</p>
+          )}
+        </div>
+        <div className="mb-3">
+          <label htmlFor="email" className="form-label">
+            Email
+          </label>
+          <input
+            type="text"
+            placeholder="seu@email.com"
+            id="email"
+            className="form-control"
+            key="signup-email"
+            {...register("email", { required: true, pattern: /^\S+@\S+$/i })}
+          />
+          {errors.email && (
+            <p style={{ color: "red" }}>{errors.email.message}</p>
+          )}
+        </div>
+        <div className="mb-4">
+          <label htmlFor="password" className="form-label">
+            Senha
+          </label>
+          <input
+            type="password"
+            id="password"
+            className="form-control"
+            placeholder="••••••••"
+            key="signup-password"
+            {...register("password", {
+              required: true,
+              minLength: 6,
+              maxLength: 16,
+            })}
+          />
+          {errors.password && (
+            <p style={{ color: "red" }}>{errors.password.message}</p>
+          )}
+        </div>
         <input
-          type="text"
-          key="signup-firstname"
-          placeholder="Primeiro nome"
-          {...register("firstName", { required: true, minLength: 3 })}
+          className="btn btn-warning w-100 py-2 mb-3"
+          disabled={loading || !isValid}
+          type="submit"
+          value={loading ? "Aguarde" : "Cadastrar"}
         />
-        {errors.firstName && (
-          <p style={{ color: "red" }}>{errors.firstName.message}</p>
-        )}
-        <input
-          type="text"
-          placeholder="Último nome"
-          key="signup-lastname"
-          {...register("lastName", { required: true, minLength: 3 })}
-        />
-        {errors.lastName && (
-          <p style={{ color: "red" }}>{errors.lastName.message}</p>
-        )}
-        <input
-          type="text"
-          placeholder="Email"
-          key="signup-email"
-          {...register("email", { required: true, pattern: /^\S+@\S+$/i })}
-        />
-        {errors.email && <p style={{ color: "red" }}>{errors.email.message}</p>}
-
-        <input
-          type="password"
-          placeholder="Senha"
-          key="signup-password"
-          {...register("password", {
-            required: true,
-            minLength: 6,
-            maxLength: 16,
-          })}
-        />
-        {errors.password && (
-          <p style={{ color: "red" }}>{errors.password.message}</p>
-        )}
-
-        <input type="submit" value={loading ? "Please wait…" : "Sign up"} />
       </>
     );
   };
@@ -130,7 +179,11 @@ export default function AuthForm() {
       <form onSubmit={handleSubmit(IsNewUser ? handleSignUp : handleLogin)}>
         {IsNewUser ? signUpForm() : logInForm()}
       </form>
-      <button type="button" onClick={() => setIsNewUser((v) => !v)}>
+      <button
+        className="btn btn-outline-warning w-100 text-dark"
+        type="button"
+        onClick={() => setIsNewUser((v) => !v)}
+      >
         {IsNewUser ? "Já tem conta? Entrar" : "Novo por aqui? Cadastrar"}
       </button>
       {errorMsg && <div style={{ color: "red" }}>{errorMsg}</div>}{" "}
