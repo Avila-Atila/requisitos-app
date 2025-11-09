@@ -1,0 +1,7 @@
+.custom__header__gradient {
+  background: linear-gradient(135deg, #d35400 0%, #e67e22 100%);
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
