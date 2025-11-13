@@ -7,7 +7,7 @@ export const Footer = () => {
             <div className="col-lg-6 mb-4 mb-lg-0">
               <h3 className="h5 mb-2">
                 <i className="bi bi-lightbulb-fill text-warning me-2"></i>
-                ReqGenius
+                GeRe
               </h3>
               <p className="text-orange">
                 Solução completa para engenharia de requisitos com IA avançada e
@@ -76,14 +76,14 @@ export const Footer = () => {
           <div className="row">
             <div className="col-md-6 text-center text-md-start">
               <p className="small text-secondary mb-0">
-                &copy; 2025 ReqGenius. Desenvolvido por Átila Ávila.
+                &copy; 2025 GeRe. Desenvolvido por Átila Ávila.
               </p>
             </div>
             <div className="col-md-6 text-center text-md-end">
-              <p className="small text-secondary mb-0">
+              {/* <p className="small text-secondary mb-0">
                 Feito com <i className="bi bi-heart-fill text-danger"></i> para
                 engenheiros de software
-              </p>
+              </p> */}
             </div>
           </div>
         </div>

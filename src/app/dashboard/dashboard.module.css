@@ -1,0 +1,68 @@
+.projectCard {
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+.projectCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15) !important;
+}
+
+.projectIcon {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.requirementItem {
+  transition: all 0.2s ease;
+  border-left: 4px solid transparent;
+  padding: 1.25rem;
+}
+
+.requirementItem:hover {
+  background-color: #f8f9fa;
+  border-left-color: var(--bs-warning);
+}
+
+.statCard {
+  text-align: center;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+.dependencyMap {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.dependencyItem {
+  padding: 0.75rem;
+  border-left: 3px solid var(--bs-warning);
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  margin-bottom: 0.75rem;
+}
+
+.dependencyItem:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .projectCard {
+    margin-bottom: 1rem;
+  }
+
+  .requirementItem {
+    padding: 1rem;
+  }
+
+  .statCard {
+    padding: 0.75rem;
+  }
+}

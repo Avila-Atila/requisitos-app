@@ -8,6 +8,7 @@ export default function LogOutButton() {
     <>
       {" "}
       <button
+        className="nav-link"
         onClick={async () => {
           const response = await fetch("/api/auth/signOut", {
             method: "POST",
@@ -17,6 +18,7 @@ export default function LogOutButton() {
           }
         }}
       >
+        <i className="bi bi-box-arrow-in-left me-1"></i>
         Sair
       </button>
     </>
