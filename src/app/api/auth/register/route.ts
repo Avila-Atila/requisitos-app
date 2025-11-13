@@ -23,7 +23,7 @@ export async function POST(req: Request) {
     }
   );
 
-  const { email, password } = await req.json();
+  const { email, password, firstName, lastName } = await req.json();
   const { data, error } = await supabase.auth.signUp({
     email,
     password,
@@ -37,6 +37,12 @@ export async function POST(req: Request) {
   }
 
   const user = data.user ?? null;
-
+  if (user) {
+    await supabase.from("profiles").insert({
+      id: user.id,
+      first_name: firstName,
+      last_name: lastName,
+    });
+  }
   return NextResponse.json({ ok: true, user });
 }
